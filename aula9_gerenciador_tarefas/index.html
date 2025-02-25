@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de tarefas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    
+</head>
+<body>
+    <h1>Gerenciador de Tarefas</h1>
+    <h2>Arraste suas tarefas para as colunas correspondentes</h2>
+    <input type="text" id="taskInput" placeholder="Digite sua tarefa">
+    <button id="addTaskBtn">Adicionar Tarefa</button>
+    <div class="container">
+        <div id="item1" class="drag_item" draggable="true">Arrumar cama</div>
+        <div id="item2" class="drag_item" draggable="true">Fazer compras</div>
+    </div>
+    
+    <h2>A Fazer</h2>
+    <div id="drop_fazer" class="drop_zone">
+        Solte os itens aqui
+    </div>
+
+    <h2>Em desenvolvimento</h2>
+    <div id="drop_desenvolvimento" class="drop_zone">
+        Solte os itens em desenvolvimento aqui
+    </div>
+    
+
+    <h2>Finalizadas</h2>
+    <div id="drop_finalizadas" class="drop_zone">
+        Solte os itens finalizados aqui
+    </div>
+    <script>
+        const itens = document.querySelectorAll('.drag_item');
+        const drop_fazer = document.getElementById('drop_fazer');
+        const drop_desinvolvimento = document.getElementById('drop_desinvolvimento');
+        const drop_finalizadas = document.getElementById('drop_finalizadas');
+
+        itens.forEach(item =>{
+            item.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text/plain', event.target.id);
+            })
+    })
+    drop_fazer.addEventListener("dragover", (event) =>{
+        event.preventDefault()
+    })
+    drop_fazer.addEventListener("drop", (event) =>{
+        event.preventDefault()
+        const item_id = event.dataTransfer.getData('text/plain');
+        const item = document.getElementById(item_id);
+        drop_fazer.appendChild(item);
+        })
+    drop_desinvolvimento.addEventListener("dragover", (event) => {
+        event.preventDefault()
+    })
+    drop_desinvolvimento.addEventListener("drop", (event) => {
+        event.preventDefault()
+        const item_id = event.dataTransfer.getData('text/plain');
+        const item = document.getElementById(item_id);
+        drop_desinvolvimento.appendChild(item);
+        })
+    drop_finalizadas.addEventListener("dragover", (event) => {
+        event.preventDefault()
+    })
+    drop_finalizadas.addEventListener("drop", (event) => {
+        event.preventDefault()
+        const item_id = event.dataTransfer.getData('text/plain');
+        const item = document.getElementById(item_id);
+        drop_finalizadas.appendChild(item);
+        })
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>

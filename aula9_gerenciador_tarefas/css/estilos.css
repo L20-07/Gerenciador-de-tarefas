@@ -1,0 +1,59 @@
+/* Estilização básica */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #d3eae7;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilização do container das tarefas */
+.container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilização das tarefas arrastáveis */
+.drag_item {
+    padding: 10px;
+    background: rgb(193, 250, 255);
+    cursor: grab;
+    border: 1px solid black;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* Estilização das áreas de drop */
+.drop_zone {
+    padding: 20px;
+    background: #eefffe;
+    min-height: 50px;
+    border: 2px dashed rgb(12, 5, 58);
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+/* Efeito ao arrastar um item sobre a área de drop */
+.drop_zone:hover {
+    background: #0a03565a;
+}
+
+/* Estilização do campo de entrada e botão */
+#taskInput {
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+#addTaskBtn {
+    padding: 10px 15px;
+    background: rgb(2, 29, 104);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#addTaskBtn:hover {
+    background: rgb(100, 0, 0);
+}
