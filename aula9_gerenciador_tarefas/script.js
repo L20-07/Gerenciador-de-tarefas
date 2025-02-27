@@ -25,7 +25,7 @@ dropZones.forEach(zone => {
     });
 });
 
-// Adicionar novas tarefas 
+// Adicionar novas tarefas (pesquiar como fazer)
 document.getElementById('addTaskBtn').addEventListener('click', () => {
     const taskInput = document.getElementById('taskInput');
     const taskText = taskInput.value.trim();
