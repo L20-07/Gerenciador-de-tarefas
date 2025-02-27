@@ -1,7 +1,6 @@
-// Seleciona todas as áreas onde os itens podem ser soltos
 const dropZones = document.querySelectorAll('.drop_zone');
 
-// Função para tornar um elemento arrastável
+// arrasta
 function makeDraggable(item) {
     item.setAttribute('draggable', 'true');
     item.classList.add('drag_item');
@@ -11,7 +10,6 @@ function makeDraggable(item) {
     });
 }
 
-// Permitir que os itens sejam soltos nas áreas
 dropZones.forEach(zone => {
     zone.addEventListener("dragover", (event) => {
         event.preventDefault();
@@ -27,7 +25,7 @@ dropZones.forEach(zone => {
     });
 });
 
-// Adicionar novas tarefas ao clicar no botão
+// Adicionar novas tarefas 
 document.getElementById('addTaskBtn').addEventListener('click', () => {
     const taskInput = document.getElementById('taskInput');
     const taskText = taskInput.value.trim();
@@ -36,12 +34,12 @@ document.getElementById('addTaskBtn').addEventListener('click', () => {
         const newTask = document.createElement('div');
         newTask.textContent = taskText;
         newTask.classList.add('drag_item');
-        newTask.id = 'task_' + new Date().getTime(); // ID único baseado no tempo
+        newTask.id = 'task_' + new Date().getTime(); 
 
         makeDraggable(newTask); // Torna o novo item arrastável
-        document.getElementById('drop_fazer').appendChild(newTask); // Adiciona à área "A Fazer"
+        document.getElementById('drop_fazer').appendChild(newTask); 
         
-        taskInput.value = ''; // Limpa o campo de entrada após adicionar
+        taskInput.value = ''; 
     } else {
         alert('Digite uma tarefa antes de adicionar!');
     }
